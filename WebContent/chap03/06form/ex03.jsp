@@ -32,7 +32,7 @@
 
 <!-- relative path : 상대경로 -->
 <h1>프로토콜도 아니고, 슬래시도 아니면 현재 경로 기준(마지막 /)</h1>
-<form action="ex02.jsp">
+<form action="ex02.jsp"> 
 	<input type="text", name="age" />
 	<input type="submit" />
 </form>

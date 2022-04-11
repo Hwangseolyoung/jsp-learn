@@ -7,7 +7,7 @@
 request attribute는 Object -->
 
 <%
-List<String> list = new ArrayList();
+List<String> list = new ArrayList<>();
 list.add("jimin");
 list.add("rm");
 list.add("jhope");

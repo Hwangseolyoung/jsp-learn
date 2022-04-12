@@ -14,7 +14,7 @@
 
 	<%
 	Cookie cookie = new Cookie("my-cookie1", "my-value1");
-	cookie.setMaxAge(60 *60); // 1시간 동안 쿠키 유효시간 유지
+	cookie.setMaxAge(60 *60); // 60초(1분) * 60 = 1시간 동안 쿠키 유효시간 유지
 	
 	response.addCookie(cookie);
 	

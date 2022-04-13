@@ -20,6 +20,7 @@
 	car.setPrice(5000);
 	
 	pageContext.setAttribute("car1", car);	
+	// 위 property명과 동일한 value값을 String으로 사용해도 출력안됨.
 	pageContext.setAttribute("prop1", "model");	
 	%>
 	

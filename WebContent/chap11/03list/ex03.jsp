@@ -20,8 +20,6 @@
 	list.add("jsp");
 	
 	pageContext.setAttribute("list", list);
-	// 새로운 name으로 지정해도 attribute에서 찾는다.
-	// value의 값을 string으로 넣어줘도 string을 인덱스 번호로 찾음
 	pageContext.setAttribute("num1", 0);
 	pageContext.setAttribute("num2", "1");
 	pageContext.setAttribute("n3", 2);
@@ -34,6 +32,8 @@
 	<p>${list[3] }</p>
 	
 	<hr />
+	// 새로운 name을 list의 attribute로 넣어줄 수 있다. 
+	// name의 value의 값은 list 인덱스 번호로
 	<p>${list[num1] }</p>
 	<p>${list[num2] }</p>
 	<p>${list[n3] }</p>

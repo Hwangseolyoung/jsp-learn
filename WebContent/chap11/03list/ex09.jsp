@@ -18,6 +18,7 @@ List<String> o = new ArrayList<>();
 o.add("kim");
 o.add("lee");
 
+// Car클래스 Owners 필드에 list 추가하기
 c1.setOwners(o);
 
 pageContext.setAttribute("myCar", c1);

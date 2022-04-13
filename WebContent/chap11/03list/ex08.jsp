@@ -19,6 +19,7 @@
 	List<String> item1 = new ArrayList<>();
 	List<String> item2 = new ArrayList<>();
 	
+	// list item을 list에 담아준다.
 	list.add(item1);
 	list.add(item2);
 	

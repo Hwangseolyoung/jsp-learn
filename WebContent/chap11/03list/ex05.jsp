@@ -20,18 +20,32 @@
 	list.add("phone");
 	list.add("wallet");
 	
+	// 향상된 for문 사용시 작성하지 않아도됨(일반 for문은 작성해야함 )
+	// 향상된 for문 돌면서 setAttribute 직접 넣어줌
 	pageContext.setAttribute("myList", list);
 	
 	%>
 
 	<%
-	for(int i = 0; i < list.size(); i++) {
+	for (int i = 0; i < list.size(); i++) {
 		pageContext.setAttribute("index", i);
 	%>
 		<p>${myList[index] }</p>
 	<%
 	}
 	%>
+	
+	<hr />
+	
+	<%
+	for (String item : list) {
+		pageContext.setAttribute("index2", item);
+	%>
+		<p>${index2 }</p>
+	<%
+	}
+	%>
+	
 
 
 </body>

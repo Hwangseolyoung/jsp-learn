@@ -5,7 +5,7 @@
 <% request.setCharacterEncoding("utf-8"); %>
 
 <%
-	// 로그아웃으로 session 삭제
+	// 로그아웃하면 session 삭제
 	session.invalidate();
 	
 	// 메인 페이지로 리다이렉트함

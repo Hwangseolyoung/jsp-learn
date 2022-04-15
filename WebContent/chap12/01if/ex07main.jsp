@@ -17,14 +17,13 @@
 	<c:if test="${not empty sessionScope.username }" var="logedIn">
 		<h2>${sessionScope.username }님 반갑습니다.</h2>
 		<h2>멤버를 위한 컨텐츠!!</h2>
-		<h3><a href="ex08logout.jsp">로그인</a></h3>
+		<h3><a href="ex05loginForm.jsp">로그인</a></h3>
 	</c:if>
 	
 	<c:if test="${not logedIn }">
 		<h2>게스트를 위한 컨텐츠@@@</h2>
 		<h3><a href="ex05loginForm.jsp">로그인</a></h3>
 	</c:if>
-
 
 </body>
 </html>

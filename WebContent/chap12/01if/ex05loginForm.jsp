@@ -14,16 +14,15 @@
 <body>
 	<h1>로그인</h1>
 	
-	<!-- 로그인 실패시 출력 매세지 -->
-	<c:if test ="${param.error }">
-		<p class="text-danger">아이디나 패스워다가 일치하지 않습니다.</p>
+	<!-- 로그인 실패시 출력 메세지 -->
+	<c:if test="${param.error }">
+		<<p class="text=danger">아이디나 패스워드가 일치하지 않습니다.</p>
 	</c:if>
-
+	
 	<form action="ex06loginProcess.jsp" method="post">
-	아이디 : <input type="text" name="id" value="donald" /> <br/>
-	암호 : <input type="password" name="pw" /> <br/>
+	아이디 : <input type="text" name="id" value="donald" /><br />
+	암호 : <input type="password" name="pw" /><br />
 	<input type="submit" value="로그인" />
 	</form>
-
 </body>
 </html>

@@ -14,14 +14,14 @@
 <body>
 	<!-- http://localhost:8080/jsp20220405/chap12/01if/ex02.jsp?num1=98&num2=10 -->
 	<c:if test="${(not empty param.num1) and (not empty param.num2) }">
-		<h1>${param.num1 } + ${param.num2 } = ${param.num1 + param.num2 }</h1>	
+		<h1>${param.num1 } + ${param.num2 } = ${param.num1 + param.num2 }</h1>
 	</c:if>
 	
-	<!-- else 태그가 없으므로 반대 결과조건 써줘야함 -->
+	<!-- else가 없으므로 반대 결과조건을 써줘야 한다.-->
 	
 	<!-- http://localhost:8080/jsp20220405/chap12/01if/ex02.jsp -->
-	<c:if test="${(empty param.num1) or (empty param.num2) }">
-		<h1>num1, num2 파라미터를 작성해주세요.</h1>	
+	<c:if test=""${(empty param.num1) or (empty param.num2) }">
+		<h1>num1, num2 파라미터를 작성해주세요.</h1>
 	</c:if>
 	
 	<hr />
@@ -29,8 +29,8 @@
 	<!-- 연산 결과 저장방법 : var attribute를 써주면 기본값 pageScope에 attribue로 들어간다. -->
 	<!-- scope attribute에 var 위치를 지정해 줄 수 있다.(page, request에만 저장하는 것이 좋다.) -->
 	<!-- 재사용시 attribute만 써주면 된다. -->
-	<c:if test="${(not empty param.num1) and (not empty param.num2) }" var="myTest" scope="page">
-		<h1>${param.num1 } + ${param.num2 } = ${param.num1 + param.num2 }</h1>	
+	<c:if test="${(not empty param.num1) and (not empty param.num2) }" var="myTesr" scope="page">
+		<h1>${param.num1 } + ${param.num2 } = ${param.num1 + param.num2 }</h1>
 	</c:if>
 	
 	<p>${myTest }</p>

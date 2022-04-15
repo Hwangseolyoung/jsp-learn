@@ -15,24 +15,23 @@
 	<h1>&lt;c:choose&gt;, &lt;c:when&gt;, &lt;c:otherwise&gt;</h1>
 	
 	<%
-	pageContext.setAttribute("age", 2);
+	pageContext.setAttribute("age", 45);
 	%>
 	
 	<c:choose>
 		<c:when test="${age >= 20 }">
-			<h1>성인입니다.</h1>
+			<h1>성인입니다. </h1>
 		</c:when>
 		<c:when test="${age >= 13 }">
 			<h1>청소년입니다.</h1>
 		</c:when>
 		<c:when test="${age >= 7 }">
-			<h1>어린이입니다.</h1>
+			<h1>어린입니다.</h1>
 		</c:when>
 		<c:otherwise>
-			<!-- otherwise 생략 가능 -->
+			<!-- c:otherwise는 생략가능하다. -->
 			<h1>유아입니다.</h1>
 		</c:otherwise>
 	</c:choose>
-
 </body>
 </html>

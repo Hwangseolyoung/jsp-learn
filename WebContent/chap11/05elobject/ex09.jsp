@@ -29,8 +29,8 @@
 	<p>${cookie.cookie1.name }</p>
 	<p>${cookie.cookie1.value }</p>
 	
-	<p>${cookie[my-cookie].name }</p>
-	<p>${cookie[my-cookie].value }</p>
+	<p>${cookie["my-cookie"].name }</p>
+	<p>${cookie["my-cookie"].value }</p>
 
 </body>
 </html>

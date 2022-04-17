@@ -41,7 +41,7 @@
 <h4>int형 배열</h4>
 
 <c:forEach var="i" items="${intArray }" begin="2" end="4" varStatus="status" >
-	${tatus.index } - ${status.count } -[${i }] <br />
+	${status.index } - ${status.count } -[${i }] <br />
 </c:forEach>
 
 <hr />

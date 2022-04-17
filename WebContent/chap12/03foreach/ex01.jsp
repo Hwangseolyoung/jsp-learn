@@ -15,6 +15,9 @@
 
 	<h1>&lt;c:forEach&gt;</h1>
 	
+	<!-- 배열, 컬렉션, Map에 저장되어 있는 값들을 처리할때 사용함
+	자바의 for, do-while등과 같이 사용된다. -->
+	
 	<!-- begin~end 1씩 증가 -->
 	<c:foreach begin="1" end="5">
 		<p>hello</p>

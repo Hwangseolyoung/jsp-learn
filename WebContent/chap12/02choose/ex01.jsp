@@ -14,6 +14,9 @@
 <body>
 	<h1>&lt;c:choose&gt;, &lt;c:when&gt;, &lt;c:otherwise&gt;</h1>
 	
+	<!-- 자바의 switch문 if-else문 코드블럭을 혼합한 형태로
+	다수의 조건문을 하나의 블럭에서 수행할때 사용함  -->
+	
 	<%
 	pageContext.setAttribute("age", 45);
 	%>

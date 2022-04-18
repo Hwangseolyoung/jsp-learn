@@ -49,6 +49,7 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
+					<th>삭제</th>
 					<th>#</th>
 					<th>모델</th>
 					<th>가격</th>
@@ -58,14 +59,22 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${applicationScope.cars }" var="car" varStatus="status">
+					
+					<c:url value="ex19carDelete.jsp" var="deleteUrl">
+						<!-- varStatus="status"의 index를 value로 넣어준다. -->
+						<c:param name="id" value="${status.index }"></c:param>
+					</c:url>
+				
 					<tr>
+						<!-- c:url과 fontAwesome으로 삭제버튼 추가 -->
+						<td><a href="${deleteUrl }"><i class="fa-solid fa-trash-can"></i></a></td>
 						<td>${status.count }</td>
-						<td>${car.model }</td>
-						<td>${car.price }</td>
+						<td><c:out value="${car.model }"></c:out></td>
+						<td><c:out value="${car.price }"></c:out></td>
 						<td>${car.available }</td>
 						<td>
 							<c:forEach items="${car.owners }" var="owner" varStatus="status">
-								${owner } 
+								<c:out value="${owner }"></c:out> 
 								<c:if test="${not status.last }">
 									,
 								</c:if>

@@ -20,7 +20,7 @@
 	<!-- else가 없으므로 반대 결과조건을 써줘야 한다.-->
 	
 	<!-- http://localhost:8080/jsp20220405/chap12/01if/ex02.jsp -->
-	<c:if test=""${(empty param.num1) or (empty param.num2) }">
+	<c:if test="${(empty param.num1) or (empty param.num2) }">
 		<h1>num1, num2 파라미터를 작성해주세요.</h1>
 	</c:if>
 	

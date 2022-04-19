@@ -132,4 +132,15 @@
   	<url-pattern>*.action</url-pattern>
   </servlet-mapping>
   
+  <!-- 책 매핑예제 코드 -->
+  <servlet>
+  	<servlet-name>now</servlet-name>
+  	<servlet-class>example.NowServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  	<servlet-name>now</servlet-name>
+  	<url-pattern>/now</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

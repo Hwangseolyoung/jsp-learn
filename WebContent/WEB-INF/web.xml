@@ -10,6 +10,17 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- ServletContextListener -->
+  <listener>
+  	<listener-class>chap20.ServletContextListener03</listener-class>
+  </listener>
+  
+  <context-param>
+  	<param-name>adminEmail</param-name>
+  	<param-value>admin1234@gmail.com</param-value>
+  </context-param>
+  
+  
   <!-- application 영역에 담겨있다. -->
   <context-param>
   	<param-name>initParamName1</param-name>
@@ -193,5 +204,8 @@
   	<filter-name>filter05</filter-name>
   	<url-pattern>/s5/memberOnly</url-pattern>
   </filter-mapping>
+
+  
+  
   
 </web-app>

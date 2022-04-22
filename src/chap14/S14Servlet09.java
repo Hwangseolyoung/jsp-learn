@@ -39,6 +39,7 @@ public class S14Servlet09 extends HttpServlet {
 		// 특정 조건에 해당되는 고객 찾기(Country 기준)
 		String param1 = request.getParameter("country");
 		
+		// 쿼리 여러줄 작성시 맨 뒤에 공백을 넣어줘야 오류발생 하지 않음
 		String sql = "SELECT CustomerName, City, Country, PostalCode "
 					+ "FROM Customers "
 					+ "WHERE Country = " + "'" +param1 + "'";

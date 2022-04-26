@@ -56,9 +56,9 @@ public class S14Servlet16 extends HttpServlet {
 						
 						emp.setLastName(rs.getString("LastName"));
 						emp.setFirstName(rs.getString("FirstName"));
-						emp.setBirthDate(rs.getNString("BirthDate"));
-						emp.setPhoto(rs.getNString("Photo"));
-						emp.setNotes(rs.getNString("Notes"));
+						emp.setBirthDate(rs.getString("BirthDate"));
+						emp.setPhoto(rs.getString("Photo"));
+						emp.setNotes(rs.getString("Notes"));
 						emp.setId(rs.getInt("EmployeeID"));
 						
 						// request에 attribute로 넣고
@@ -79,8 +79,61 @@ public class S14Servlet16 extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		// Employees 테이블의 로우 수정 코드
+		String sql = "UPDATE Employees "
+				+ "SET LastName = ?, "
+				+ "	   FirstName = ?, "
+				+ "	   BirthDate = ?, "
+				+ "    Photo = ?, "
+				+ "    Notes = ? "
+				+ "WHERE EmployeeID = ? ";
+		
+		String lastName = request.getParameter("lastName");
+		String firstName = request.getParameter("firstName");
+		String birthDate = request.getParameter("birthDate");
+		String photo = request.getParameter("pic");
+		String notes = request.getParameter("notes");
+		String id = request.getParameter("id");
+		
+		int result = 0;
+		
+		ServletContext application = getServletContext();
+		DataSource ds = (DataSource) application.getAttribute("dbpool");
+		
+		try (Connection con = ds.getConnection();
+				PreparedStatement pstmt = con.prepareStatement(sql);){
+			
+			pstmt.setString(1, lastName);
+			pstmt.setString(2, firstName);
+			pstmt.setString(3, birthDate);
+			pstmt.setString(4, photo);
+			pstmt.setString(5, notes);
+			pstmt.setInt(6, Integer.parseInt(id));
+			
+			// 영향을 끼친 레코드에 업데이트됨
+			result = pstmt.executeUpdate();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println(lastName);
+		System.out.println(firstName);
+		System.out.println(birthDate);
+		System.out.println(photo);
+		System.out.println(notes);
+		System.out.println(id);
+		
+		String location ="S14Servlet16";
+		if (result == 1) {
+			// 잘된거
+			location += "?success=true";
+		} else {
+			// 잘못된것 
+			location += "?success=false";
+		}
+		
+		response.sendRedirect(location);
 	}
 
 }

@@ -54,14 +54,14 @@ public class S14Servlet01 extends HttpServlet {
 				Statement stmt = con.createStatement();
 				
 				// 3.쿼리 실행
-				// ResultSet : 쿼리를 실행한 결과 객채를 받는다. 
+				// ResultSet : 쿼리를 실행한 결과 객체를 받는다. 
 				ResultSet rs = stmt.executeQuery(sql);) {
 				
 			// 4. 실행결과 정제
 			// ResultSet 메소드 next() 첫번째 행 이전 : 현재 위치에서 다음위치로 row 커서(행을 가르킴)를 옮긴다. 
 			while (rs.next()) {
 				// getString(얻어올 컬럼을 순서를 위 작성한 String sql에 
-				//칼럼 순서로 int로 입력하면됨) : String 형식의 데이터를 얻어온다.
+				// 칼럼 순서로 int로 입력하면됨) : String 형식의 데이터를 얻어온다.
 				String city = rs.getString(1);
 //				System.out.println(city);
 				cities.add(city);

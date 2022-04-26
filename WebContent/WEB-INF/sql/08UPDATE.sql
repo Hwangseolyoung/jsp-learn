@@ -34,3 +34,6 @@ SELECT * FROM Products;
 -- 기존 row 값을 활용 가능
 UPDATE Products
 SET Price = Price + 2;
+
+DESC Employees;
+SELECT * FROM Employees;

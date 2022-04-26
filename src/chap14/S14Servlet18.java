@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,9 +48,8 @@ public class S14Servlet18 extends HttpServlet {
 		DataSource ds = (DataSource) application.getAttribute("dbpool");
 		
 		try (Connection con = ds.getConnection();
-				PreparedStatement pstmt = con.prepareStatement(sql);) {
-			
-			try (ResultSet rs = pstmt.executeQuery();) {
+				Statement stmt = con.createStatement();
+				ResultSet rs = stmt.executeQuery(sql);) {
 				
 				while (rs.next()) {
 					Customer cus = new Customer();
@@ -65,7 +65,6 @@ public class S14Servlet18 extends HttpServlet {
 				}
 				
 				request.setAttribute("customerList", list);
-			}
 			
 		} catch (Exception e) {
 			e.printStackTrace();

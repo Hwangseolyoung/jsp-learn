@@ -29,7 +29,7 @@ public class BoardInsertServlet extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-    
+     
     @Override
     public void init() throws ServletException {
     	ServletContext application = getServletContext();

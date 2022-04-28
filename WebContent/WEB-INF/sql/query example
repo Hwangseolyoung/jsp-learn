@@ -1,0 +1,37 @@
+		SELECT 
+	    CONFIGCODE                          /* 설정코드 */
+	    , CONFIGDIV                         /* 설정구분 */
+	    , DEFAULTVALUE                      /* 기본값 */
+	    , EDITVALUE                         /* 편집값 */
+	    , DESCR                             /* 설명 */
+	    , USE_YN                            /* 사용여부 */
+	FROM ADM_SYSTEMCONFIG 
+	WHERE CONFIGCODE = 'WMS_OPENCLOSE'
+
+
+
+	INSERT INTO BOK_M_WMS_OPENCLOSE_HIS (
+	    WORK_DATETIME                        /* 작업처리일시 */
+	    , WMS_OPENCLOSE_SCD                 /* 작업유형 */
+	    , WORK_ID                           /* 작업자 */
+	    , INS_DATETIME                      /* 생성일시 */
+	    , INS_PERSON_ID                     /* 생성자 */
+	    , UPD_DATETIME                      /* 수정일시 */
+	    , UPD_PERSON_ID                     /* 수정자 */
+	) VALUES (
+	    GETDATE()                           /* 작업처리일시 */
+	    , #{NEW_DEFAULTVALUE}               /* 작업유형 */
+	    , #{SES_USERID}                     /* 작업자 */
+	    , GETDATE()                         /* 생성일시 */
+	    , #{SES_USERID}                     /* 생성자 */
+	    , GETDATE()                         /* 수정일시 */
+	    , #{SES_USERID}                     /* 수정자 */
+	)
+
+
+	UPDATE ADM_SYSTEMCONFIG SET 
+	    DEFAULTVALUE = #{NEW_DEFAULTVALUE}  /* 기본값 */
+	    , UPD_PERSON_ID = #{SES_USERID}     /* 수정자 */
+	    , UPD_DATETIME = GETDATE()          /* 수정일시 */
+	WHERE CONFIGCODE = 'WMS_OPENCLOSE'      /* 설정구분 */
+	}

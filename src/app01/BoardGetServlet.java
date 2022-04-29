@@ -43,7 +43,7 @@ public class BoardGetServlet extends HttpServlet {
 		// request parameter가공
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		// bussines logic
+		// business logic
 		try (Connection con = ds.getConnection()) {
 			BoardDao dao = new BoardDao();
 			BoardDto board = dao.get(con, id);

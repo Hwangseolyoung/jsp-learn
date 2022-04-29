@@ -19,9 +19,9 @@
 	자바의 for, do-while등과 같이 사용된다. -->
 	
 	<!-- begin~end 1씩 증가 -->
-	<c:foreach begin="1" end="5">
+	<c:forEach begin="1" end="5">
 		<p>hello</p>
-	</c:foreach>
+	</c:forEach>
 	
 	<hr />
 	

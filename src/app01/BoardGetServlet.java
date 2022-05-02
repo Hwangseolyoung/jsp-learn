@@ -2,6 +2,7 @@ package app01;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -12,7 +13,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 
 import app01.dao.BoardDao;
+import app01.dao.ReplyDao;
 import app01.dto.BoardDto;
+import app01.dto.ReplyDto;
 
 /**
  * Servlet implementation class BoardGetServlet
@@ -21,48 +24,64 @@ import app01.dto.BoardDto;
 public class BoardGetServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private DataSource ds;
-	
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public BoardGetServlet() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
-    
-    @Override
-    public void init() throws ServletException {
-    	ServletContext application = getServletContext();
-    	this.ds = (DataSource) application.getAttribute("dbpool");
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// request parameter가공
+	public BoardGetServlet() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void init() throws ServletException {
+		ServletContext application = getServletContext();
+		this.ds = (DataSource) application.getAttribute("dbpool");
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// 글 본문보는 servlet
+		// request parameter 가공
 		int id = Integer.parseInt(request.getParameter("id"));
 		
-		// business logic
+		// bussines logic
 		try (Connection con = ds.getConnection()) {
+			
+			// 게시글 목록
 			BoardDao dao = new BoardDao();
 			BoardDto board = dao.get(con, id);
 			
+			// 댓글 목록
+			ReplyDao replyDao = new ReplyDao();
+			List<ReplyDto> replyList = replyDao.list(con, id);
+						
 			// add attribute
 			request.setAttribute("board", board);
+			request.setAttribute("replyList", replyList);
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
+		// 댓글 bussines logic
+
 		// forward / redirect
 		String path = "/WEB-INF/view/app01/get.jsp";
 		request.getRequestDispatcher(path).forward(request, response);
+		
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}

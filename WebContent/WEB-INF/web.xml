@@ -190,10 +190,12 @@
   	<filter-class>chap19.Filter04</filter-class>
   </filter>
   
+  <!-- 한글처리 필터 -->
   <filter-mapping>
   	<filter-name>filter04</filter-name>
   	<url-pattern>/s5/*</url-pattern>
   	<url-pattern>/board/*</url-pattern>
+  	<url-pattern>/reply/*</url-pattern>
   </filter-mapping>
   
   <filter>

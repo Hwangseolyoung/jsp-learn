@@ -56,6 +56,15 @@
 									<a href="${getUrl }">
 										${board.title }
 									</a>
+									
+									<!-- 댓글수 추가 -->
+									<c:if test="${board.numOfReply > 0 }">
+										<span>
+											<i class="fa-solid fa-comments"></i>
+											${board.numOfReply }
+										</span>
+									</c:if>
+									
 								</td>
 								<td>${board.prettyInserted }</td>
 							</tr>

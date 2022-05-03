@@ -62,3 +62,6 @@ UNION
 SELECT product_id, 'store3' store, store3 price
 FROM Products
 WHERE store3 IS NOT NULL;
+
+
+SELECT * FROM Board;

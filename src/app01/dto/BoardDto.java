@@ -10,6 +10,8 @@ public class BoardDto {
 	private String title;
 	private String body;
 	private LocalDateTime inserted;
+	private int numOfReply;
+	
 	
 	public String getPrettyInserted() {
 		// 24시간 이내면 시간만
@@ -46,6 +48,16 @@ public class BoardDto {
 	}
 	public void setBody(String body) {
 		this.body = body;
+	}
+
+
+	public int getNumOfReply() {
+		return numOfReply;
+	}
+
+
+	public void setNumOfReply(int numOfReply) {
+		this.numOfReply = numOfReply;
 	}
 	
 	

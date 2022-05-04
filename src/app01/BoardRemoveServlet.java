@@ -64,7 +64,7 @@ public class BoardRemoveServlet extends HttpServlet {
 			con = ds.getConnection();
 			con.setAutoCommit(false); // true로 하면 댓글만 삭제됨
 			
-			// 댓글지움
+			// 댓글지움(transaction)
 			replyDao.deleteByBoardId(con, id);
 			
 			/*

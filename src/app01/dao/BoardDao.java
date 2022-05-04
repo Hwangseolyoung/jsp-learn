@@ -3,6 +3,7 @@ package app01.dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
@@ -132,20 +133,15 @@ public class BoardDao {
 		return false;
 	}
 	
-	public boolean delete(Connection con, int id) {
+	public boolean delete(Connection con, int id) throws SQLException { // 익셉션이 발생해야 rollback이됨
 		String sql = "DELETE FROM Board "
 				+ "WHERE id = ? ";
 		
-		try (PreparedStatement pstmt = con.prepareStatement(sql)){
-			pstmt.setInt(1, id);
+		PreparedStatement pstmt = con.prepareStatement(sql);
+		pstmt.setInt(1, id);
 			
-			int count = pstmt.executeUpdate();
-			return count == 1;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+		int count = pstmt.executeUpdate();
+		return count == 1;
 		
 		
 		
